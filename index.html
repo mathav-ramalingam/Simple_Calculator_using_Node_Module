@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+    <style>
+        body 
+        {
+            background-image: url('k.jpg');
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-size: cover;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            padding: 0;
+        }
+
+        .calculator 
+        {
+            border-style: ridge;
+            border: 0px outset black;
+            border-radius: 20px;
+            background-color: rgba(254, 167, 60, 0.4);
+            padding: 30px;
+            width: 90%;
+            max-width: 400px;
+            text-align: center;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        }
+
+        h1 
+        {
+            color: #21a905;
+            font-family: Georgia, 'Times New Roman', Times, serif;
+            margin-bottom: 40px;
+            font-weight: bold;
+        }
+
+        .calculator label 
+        {
+            display: block;
+            font-size: 20px;
+            margin-bottom: 10px;
+            margin-right: 155px;
+            font-weight: bold;
+        }
+
+        .calculator input 
+        {
+            width: calc(100% - 60px);
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            box-sizing: border-box;
+        }
+
+        .buttons 
+        {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
+
+        .buttons button 
+        {
+            flex: 1 1 45%;
+            margin: 8px;
+            padding: 5px ;
+            border: none;
+            border-radius: 20px;
+            background-color: #af50c9;
+            color: white;
+            font-size: 30px;
+            cursor: pointer;
+        }
+
+        .buttons button:hover
+         {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="calculator">
+        <h1>CALCULATOR</h1>
+        <form id="calculator-form" action="http://localhost:1608/calculate">
+            <label for="num1">Enter the Number 1:</label>
+            <input type="number" id="num1" name="num1" required>
+            <label for="num2">Enter the Number 2:</label>
+            <input type="number" id="num2" name="num2" required>
+            <input type="hidden" id="operation" name="operation">
+            <div id="operation" class="buttons" >
+                <button type="button" onclick="setOperationAndSubmit('+')">+</button>
+                <button type="button" onclick="setOperationAndSubmit('-')">-</button>
+                <button type="button" onclick="setOperationAndSubmit('*')">x</button>
+                <button type="button" onclick="setOperationAndSubmit('/')">/</button>
+                <button type="button" onclick="setOperationAndSubmit('^')">^</button>
+                <button type="button" onclick="setOperationAndSubmit('%')">%</button>
+            </div>
+        </form>
+      
+    </div>
+    <script>
+        function setOperationAndSubmit(op) 
+        {
+            document.getElementById('operation').value = op;
+            document.getElementById('calculator-form').submit();
+        }
+    </script>
+</body>
+</html>
